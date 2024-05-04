@@ -1,0 +1,4 @@
+enum MessageStepper {
+  first,
+  second,
+}
