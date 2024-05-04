@@ -1,8 +1,7 @@
-import 'package:agrimed/common/styles/spacing_styles.dart';
-import 'package:agrimed/utils/constants/sizes.dart';
-import 'package:agrimed/utils/constants/text.string.dart';
-import 'package:agrimed/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/utils/constants/sizes.dart';
+import '../../core/utils/constants/text.string.dart';
 
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen(
@@ -20,13 +19,14 @@ class SuccessScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: AgrimedSpacingStyle.paddingWithAppBarHeight * 2,
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
               /// Image
               Image(
-                  image: AssetImage(image),
-                  width: AgrimedHelperFunctions.screenWidth() * 0.6),
+                image: AssetImage(image),
+                width: 100,
+              ),
               const SizedBox(height: AgrimedSize.spaceBtwSections),
 
               /// Title & SubTitle

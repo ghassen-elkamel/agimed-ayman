@@ -1,13 +1,13 @@
-import 'package:agrimed/common/widgets/success_screen/success_screen.dart';
-import 'package:agrimed/features/authentication/screens/login/login.dart';
-import 'package:agrimed/utils/constants/image_strings.dart';
-import 'package:agrimed/utils/constants/sizes.dart';
-import 'package:agrimed/utils/constants/text.string.dart';
-import 'package:agrimed/utils/helpers/helper_functions.dart';
+import 'package:agimed/app/routes/app_pages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+
+import '../../../core/utils/constants/image_strings.dart';
+import '../../../core/utils/constants/sizes.dart';
+import '../../../core/utils/constants/text.string.dart';
+import '../../success_screen/success_screen.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
   const VerifyEmailScreen({super.key});
@@ -19,22 +19,22 @@ class VerifyEmailScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-              onPressed: () => Get.offAll(() => const LoginScreen()),
+              onPressed: () => Get.offAllNamed(Routes.LOGIN),
               icon: const Icon(CupertinoIcons.clear))
         ],
       ),
       body: SingleChildScrollView(
         // Padding to give default equal space on all sides in all screens.
         child: Padding(
-          padding: const EdgeInsets.all(AgrimedSize.defaultSpace),
+          padding: const EdgeInsets.all(8),
           child: Column(
             children: [
               /// Image
               Image(
                 image: const AssetImage(AgrimedImages.email),
-                width: AgrimedHelperFunctions.screenWidth() * 0.6,
+                width: Get.width * 0.6,
               ),
-              const SizedBox(height: AgrimedSize.spaceBtwSections),
+              const SizedBox(height: 30),
 
               /// Title & SubTitle
               Text(
@@ -43,6 +43,7 @@ class VerifyEmailScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: AgrimedSize.spaceBtwSections),
+
               /// Email
               TextFormField(
                 decoration: const InputDecoration(
@@ -55,21 +56,22 @@ class VerifyEmailScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: AgrimedSize.spaceBtwSections),
+              const SizedBox(height: 30),
 
               /// Buttons
               SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () => Get.to(() => SuccessScreen(
-                        image: AgrimedImages.receivedEmail,
-                        title: AgrimedTextString.requestForPassword,
-                        subTitle: AgrimedTextString.request,
-                        onPressed: () => Get.to(() => const LoginScreen()) ,
-                          ),),
+                      onPressed: () => Get.to(
+                            () => SuccessScreen(
+                              image: AgrimedImages.receivedEmail,
+                              title: AgrimedTextString.requestForPassword,
+                              subTitle: AgrimedTextString.request,
+                              onPressed: () => Get.toNamed(Routes.LOGIN),
+                            ),
+                          ),
                       child: const Text(AgrimedTextString.Continue))),
               const SizedBox(height: AgrimedSize.spaceBtwSections),
-
             ],
           ),
         ),

@@ -1,38 +1,37 @@
-import 'package:agrimed/features/authentication/screens/login/widgets/verify_email.dart';
-import 'package:agrimed/navigation_menu.dart';
-import 'package:agrimed/utils/constants/sizes.dart';
-import 'package:agrimed/utils/constants/text.string.dart';
+import 'package:agimed/app/global_widgets/atoms/text_field.dart';
+import 'package:agimed/app/modules/login/views/verify_email.dart';
+import 'package:agimed/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+
+import '../../../core/utils/constants/sizes.dart';
+import '../../../core/utils/constants/text.string.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
     super.key,
   });
+
   @override
   Widget build(BuildContext context) {
     return Form(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: AgrimedSize.spaceBtwSections),
+        padding:
+            const EdgeInsets.symmetric(vertical: AgrimedSize.spaceBtwSections),
         child: Column(
           children: [
             /// Email
-            TextFormField(
-              decoration: const InputDecoration(
+            const AtomTextField(
+              decoration: InputDecoration(
                   prefixIcon: Icon(Iconsax.direct_right),
                   labelText: AgrimedTextString.Email),
             ),
             const SizedBox(height: AgrimedSize.spaceBtwInputField),
 
             ///Password
-            TextFormField(
-              obscureText: true,
-              decoration: const InputDecoration(
-                prefixIcon: Icon(Iconsax.password_check),
-                labelText: AgrimedTextString.Password,
-                suffixIcon: Icon(Iconsax.eye_slash),
-              ),
+            AtomTextField(
+              isObscureText: true,
             ),
             const SizedBox(height: AgrimedSize.spaceBtwInputField / 2),
 
@@ -62,14 +61,12 @@ class LoginForm extends StatelessWidget {
             SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () => Get.to(() => const NavigationMenu()),
+                    onPressed: () => Get.toNamed(Routes.HOME),
                     child: const Text(AgrimedTextString.SigneIn))),
             const SizedBox(height: AgrimedSize.spaceBtwSections),
-
           ],
         ),
       ),
     );
   }
 }
-
