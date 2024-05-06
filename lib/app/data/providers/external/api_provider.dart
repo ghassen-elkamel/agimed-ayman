@@ -58,6 +58,7 @@ class ApiProvider {
         var responseStream = await request.send();
         response = await http.Response.fromStream(responseStream);
       } else {
+        print(uri);
         response = await http
             .post(
               uri,

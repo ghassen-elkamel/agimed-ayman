@@ -22,7 +22,7 @@ class AuthService {
   }) async {
     final response = await ApiProvider().post(
       HttpParamsPostPut(
-        endpoint: "/v1/auth/login",
+        endpoint: "auth/login",
         body: auth.toJson(),
       ),
     );

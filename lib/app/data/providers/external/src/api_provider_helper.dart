@@ -21,7 +21,7 @@ extension Helper on ApiProvider {
         scheme: protocol,
         host: params.externalHost ?? host,
         port: port,
-        path: "${params.isUnderAPI ? apiPrefix : ""}${params.endpoint}",
+        path: params.endpoint,
         queryParameters: params.queryParam);
   }
 

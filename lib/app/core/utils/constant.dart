@@ -1,8 +1,8 @@
 const String appName = "AGRIMED";
 //URL ENV
-const String protocol = String.fromEnvironment('PROTOCOL');
-const String host = String.fromEnvironment('HOST');
-final int? port = int.tryParse(const String.fromEnvironment('PORT').toString());
+const String protocol = "http";
+const String host = "localhost";
+const int port = 4000;
 const String apiPrefix = "/api";
 
 //PHOTOS ENV
